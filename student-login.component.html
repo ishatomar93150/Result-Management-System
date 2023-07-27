@@ -1,0 +1,51 @@
+<body>
+    <nav class="navbar navbar-light bg-dark">
+        <div class="container fluid">
+            <h2 class="text-light primary py-3">RESULT MANAGEMENT SYTSEM</h2>
+
+            <div class="d-flex">
+                <button class="btn btn-primary" routerLink="/home">Back</button>&nbsp;&nbsp;
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="text-center">
+                        <h2>Student Login</h2>
+                        <label *ngIf="error" style="color: red;">WRONG CREDENTIALS</label>
+                        <hr>
+                    </div>
+
+                    <form [formGroup]="studentLogin" (ngSubmit)="login()">
+                        <div class="row mb-3 mt-3">
+
+                            <label for="dob" class="col-sm-2 col-form-label ">DOB:</label>
+                            <div class="col-sm-10">
+                                <input type="dob" class="form-control" id="dob" name="dob" formControlName="dob">
+                            </div>
+                            <span class="error" *ngIf="dob?.invalid && dob?.touched"class="text-danger">*DOB is required</span>
+                        </div>
+                        <div class="row mb-3 mt-3">
+
+                            <label for="rollnumber" class="col-sm-2 col-form-label ">RollNo:</label>
+                            <div class="col-sm-10">
+                                <input type="rollnumber" class="form-control" id="rollnumber" name="rollno"
+                                    formControlName="rollno">
+                            </div>
+                            <span class="error" *ngIf="rollno?.invalid && rollno?.touched"class="text-danger">*Rollno is required</span>
+                        </div>
+                        <hr>
+                        <div style="text-align: right;">
+                        <button type="submit" [disabled]="studentLogin.invalid"
+                            class="btn btn-success">SEARCH</button>&nbsp;&nbsp;
+                        <button type="reset" class="btn btn-warning">CLEAR</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

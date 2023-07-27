@@ -1,0 +1,55 @@
+<nav class="navbar navbar-light bg-dark">
+    <div class="container fluid">
+        <h2 class="text-light primary py-3">RESULT MANAGEMENT SYTSEM</h2>
+
+        <div class="d-flex">
+            <button class="btn btn-primary" routerLink="/teacher-view">Back</button>&nbsp;&nbsp;
+            <button class="btn btn-warning" routerLink="/home">Logout</button>  
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h3>Update Student Details</h3><hr>
+                </div>
+<!--[formGroup]="editRecord": This attribute binds the editRecord form group to the form element. 
+    It establishes a connection between the form and the FormGroup instance in the component's class.-->
+                <form [formGroup]="editRecord" (ngSubmit)="edit()">
+                    <div class="row mb-3 mt-3">
+                        <label for="rollno" class="col-sm-3 col-form-label">Roll No:</label>
+                        <div class="col-sm-8">
+                        <input type="number" formControlName="rollno" class="form-control" placeholder="Enter student Roll No" id="rollno" name= "rollno" readonly>
+                        </div>  
+                    </div>
+                       <div class="row mb-3 mt-3">
+                         <label for="name" class="col-sm-3 col-form-label">Name:</label>
+                         <div class="col-sm-8">
+                         <input type="text" formControlName="name" class="form-control" placeholder="Enter student Name" id="name" name="name" >
+                         </div>
+                        </div>
+                       <div class="row mb-3 mt-3">
+                        <label for="dob" class="col-sm-3 col-form-label">Date of Birth:</label>
+                        <div class="col-sm-8">
+                        <input type="text" formControlName="dob" class="form-control" placeholder="yyyy-mm-dd" id="dob" name="dob">
+                        </div>
+                    </div>
+                       <div class="row mb-3 mt-3">
+                         <label for="score" class="col-sm-3 col-form-label">Score:</label>
+                          <div class="col-sm-8">  
+                         <input type="number" formControlName="score" class="form-control" placeholder="Enter Score" id="score" name="score">
+                        </div>
+                        </div>
+                       <hr>
+                       <div style="text-align: right;">
+                       <button type="submit"[disabled]="editRecord.invalid" class="btn btn-success">Update</button>&nbsp;
+                        <button type="reset" class="btn btn-warning">Clear</button>
+                    </div>
+                     </form>
+               </div>
+           </div>
+       </div>
+    </div>

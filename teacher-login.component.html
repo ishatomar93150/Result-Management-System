@@ -1,0 +1,49 @@
+<body>
+    <nav class="navbar navbar-light bg-dark">
+      <div class="container fluid">
+        <h2 class="text-light primary py-3">RESULT MANAGEMENT SYTSEM</h2>
+  
+        <div class="d-flex">
+          <button class="btn btn-primary" routerLink="/home">Back</button>&nbsp;&nbsp;
+        </div>
+      </div>
+    </nav>
+  
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="text-center">
+              <h2>Teacher Login</h2>
+              <label *ngIf="error" style="color: red;">WRONG CREDENTIALS!!</label>
+              <hr>
+            </div>
+            <form [formGroup]="teacherLogin" (ngSubmit)="teacherlogin()">
+              <div class="row mb-3 mt-3">
+                <label for="name" class="col-sm-3 col-form-label">Username:</label>
+                <div class="col-sm-8">
+                  <input type="name" formControlName="uname" class="form-control" placeholder="Enter your Username"
+                    id="name" name="name">
+                </div>
+                <span class="error" *ngIf="uname?.invalid && uname?.touched"class="text-danger">*Username is required</span>
+              </div>
+              <div class="row mb-3 mt-3">
+                <label for="teacherloginPass" class="col-sm-3 col-form-label">Password:</label>
+                <div class="col-sm-8">
+                  <input type="password" formControlName="pass" class="form-control" placeholder="Enter your Password"
+                    id="pass" name="pass">
+                </div>
+                <span class="error" *ngIf="pass?.invalid && pass?.touched"class="text-danger">*Password is required</span>
+              </div>
+              <hr>
+              <div style="text-align:right">
+                <button type="submit" [disabled]="teacherLogin.invalid" class="btn btn-success">Login</button>&nbsp;
+                <button type="reset" class="btn btn-primary">Clear</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </body>
